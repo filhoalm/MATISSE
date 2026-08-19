@@ -1,14 +1,6 @@
 ---
 title: "MATISSE"
 subtitle: "a MATLAB Toolbox for vItal rateS Surveillance — course and toolbox support page"
-author:
-  - name: "Philip S. Rosenberg, PhD"
-    affiliation: "National Cancer Institute (retired) — Project Lead"
-  - name: "Hyuna Sung, PhD, and team"
-    affiliation: "American Cancer Society"
-  - name: "Adalberto Miranda Filho"
-    affiliation: "International Agency for Research on Cancer (IARC/WHO)"
-  - name: "Yasmmin Martins"
 date: today
 date-modified: today
 format:
@@ -16,6 +8,9 @@ format:
     toc: true
     toc-depth: 3
     theme: cosmo
+    css: styles.css
+    title-block-banner: "#0B2E4F"
+    title-block-banner-color: "#FFFFFF"
     fig-align: center
     code-tools: false
     smooth-scroll: true
@@ -196,9 +191,11 @@ The user's guide is a growing set of MATLAB Live Script (`.mlx`) files, each pai
 
 ## Project team
 
-- **Philip S. Rosenberg, PhD** — Project lead; MATISSE toolbox architecture and code (National Cancer Institute, retired)
-- **Hyuna Sung, PhD**, and team — American Cancer Society
-- **Adalberto Miranda Filho** — International Agency for Research on Cancer (IARC/WHO)
+::: {.team-grid}
+- **Philip S. Rosenberg, PhD** — Project lead; toolbox architecture and code
+- **Hyuna Sung, PhD**, and team
+- **Adalberto Miranda Filho**
 - **Yasmmin Martins**
+:::
 
 MATISSE's toolbox architecture and code are the work of Philip S. Rosenberg, PhD, implementing methods developed jointly with the cancer surveillance research community — in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024. The course built around it is a collaboration between the team above.
