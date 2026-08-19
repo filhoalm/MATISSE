@@ -1,7 +1,14 @@
 ---
 title: "MATISSE"
-subtitle: "a MATLAB Toolbox for vItal rateS Surveillance"
-author: "Adalberto Miranda Filho"
+subtitle: "a MATLAB Toolbox for vItal rateS Surveillance — course and toolbox support page"
+author:
+  - name: "Philip S. Rosenberg, PhD"
+    affiliation: "National Cancer Institute (retired) — Project Lead"
+  - name: "Hyuna Sung, PhD, and team"
+    affiliation: "American Cancer Society"
+  - name: "Adalberto Miranda Filho"
+    affiliation: "International Agency for Research on Cancer (IARC/WHO)"
+  - name: "Yasmmin Martins"
 date: today
 date-modified: today
 format:
@@ -18,8 +25,17 @@ format:
 ![](images/banner.png){fig-alt="MATISSE banner, styled after Henri Matisse's paper cut-outs" width="100%"}
 
 ::: {.callout-note}
-This page is a **working draft**. MATISSE is being prepared for its first public release — content, code examples, and downloads below will keep expanding as the toolbox and its user's guide grow.
+This page is a **working draft**. It's the support page for the MATISSE course and toolbox — content, code examples, and downloads below will keep expanding as the course and its user's guide grow.
 :::
+
+## The MATISSE course
+
+MATISSE is being introduced through a short course, alongside the toolbox documentation below. Two formats are planned:
+
+- **Live introductory sessions** — a short, high-level primer on age-period-cohort (APC) methods for epidemiologists, with time set aside for Q&A. Date to be announced.
+- **On-demand sessions** — longer, hands-on lectures organized chapter by chapter, working through the toolbox and its `.mlx` user's guide in depth. Recordings and additional materials will be added here as they become available.
+
+The course is aimed at epidemiologists, cancer registry researchers, and biostatisticians interested in age-period-cohort methods for cancer surveillance. Slides and code are shared from this page — see [Downloads](#downloads) below.
 
 ## Overview
 
@@ -178,6 +194,11 @@ The user's guide is a growing set of MATLAB Live Script (`.mlx`) files, each pai
 - [Smoothing methods for Lexis diagrams](https://journals.sagepub.com/doi/10.1177/09622802231192950)
 - [Semiparametric age-period-cohort analysis](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2819747)
 
-## Acknowledgements
+## Project team
 
-MATISSE's architecture and code are the work of Philip S. Rosenberg, PhD. It implements methods developed jointly with the cancer surveillance research community, in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024.
+- **Philip S. Rosenberg, PhD** — Project lead; MATISSE toolbox architecture and code (National Cancer Institute, retired)
+- **Hyuna Sung, PhD**, and team — American Cancer Society
+- **Adalberto Miranda Filho** — International Agency for Research on Cancer (IARC/WHO)
+- **Yasmmin Martins**
+
+MATISSE's toolbox architecture and code are the work of Philip S. Rosenberg, PhD, implementing methods developed jointly with the cancer surveillance research community — in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024. The course built around it is a collaboration between the team above.

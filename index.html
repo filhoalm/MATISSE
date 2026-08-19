@@ -6,7 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Philip S. Rosenberg, PhD">
+<meta name="author" content="Hyuna Sung, PhD, and team">
 <meta name="author" content="Adalberto Miranda Filho">
+<meta name="author" content="Yasmmin Martins">
 <meta name="dcterms.date" content="2026-08-19">
 
 <title>MATISSE</title>
@@ -3078,7 +3081,8 @@ vertical-align: -.125em;
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#the-matisse-course" id="toc-the-matisse-course" class="nav-link active" data-scroll-target="#the-matisse-course">The MATISSE course</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a>
   <ul class="collapse">
   <li><a href="#system-map" id="toc-system-map" class="nav-link" data-scroll-target="#system-map">System map</a></li>
@@ -3090,7 +3094,7 @@ vertical-align: -.125em;
   <li><a href="#scripting-with-matisse" id="toc-scripting-with-matisse" class="nav-link" data-scroll-target="#scripting-with-matisse">Scripting with MATISSE</a></li>
   <li><a href="#downloads" id="toc-downloads" class="nav-link" data-scroll-target="#downloads">Downloads</a></li>
   <li><a href="#related-methods-and-publications" id="toc-related-methods-and-publications" class="nav-link" data-scroll-target="#related-methods-and-publications">Related methods and publications</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#project-team" id="toc-project-team" class="nav-link" data-scroll-target="#project-team">Project team</a></li>
   </ul>
 </nav>
 </div>
@@ -3099,20 +3103,48 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">MATISSE</h1>
-<p class="subtitle lead">a MATLAB Toolbox for vItal rateS Surveillance</p>
+<p class="subtitle lead">a MATLAB Toolbox for vItal rateS Surveillance — course and toolbox support page</p>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Philip S. Rosenberg, PhD </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            National Cancer Institute (retired) — Project Lead
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Hyuna Sung, PhD, and team </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            American Cancer Society
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Adalberto Miranda Filho </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            International Agency for Research on Cancer (IARC/WHO)
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Yasmmin Martins </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Adalberto Miranda Filho </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
@@ -3145,9 +3177,18 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is a <strong>working draft</strong>. MATISSE is being prepared for its first public release — content, code examples, and downloads below will keep expanding as the toolbox and its user’s guide grow.</p>
+<p>This page is a <strong>working draft</strong>. It’s the support page for the MATISSE course and toolbox — content, code examples, and downloads below will keep expanding as the course and its user’s guide grow.</p>
 </div>
 </div>
+<section id="the-matisse-course" class="level2">
+<h2 class="anchored" data-anchor-id="the-matisse-course">The MATISSE course</h2>
+<p>MATISSE is being introduced through a short course, alongside the toolbox documentation below. Two formats are planned:</p>
+<ul>
+<li><strong>Live introductory sessions</strong> — a short, high-level primer on age-period-cohort (APC) methods for epidemiologists, with time set aside for Q&amp;A. Date to be announced.</li>
+<li><strong>On-demand sessions</strong> — longer, hands-on lectures organized chapter by chapter, working through the toolbox and its <code>.mlx</code> user’s guide in depth. Recordings and additional materials will be added here as they become available.</li>
+</ul>
+<p>The course is aimed at epidemiologists, cancer registry researchers, and biostatisticians interested in age-period-cohort methods for cancer surveillance. Slides and code are shared from this page — see <a href="#downloads">Downloads</a> below.</p>
+</section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p><strong>MATISSE</strong> is a <strong>MA</strong>TLAB <strong>T</strong>oolbox for v<strong>I</strong>tal rate<strong>S</strong> <strong>S</strong>urveillanc<strong>E</strong>. It was designed and built by <strong>Philip S. Rosenberg, PhD</strong>, to implement the suite of statistical methods that Rosenberg and Adalberto Miranda Filho describe in <a href="https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2023.1332429/full"><em>Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective</em></a> (Frontiers in Oncology, 2024).</p>
@@ -3385,9 +3426,15 @@ Note
 <li><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2819747">Semiparametric age-period-cohort analysis</a></li>
 </ul>
 </section>
-<section id="acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>MATISSE’s architecture and code are the work of Philip S. Rosenberg, PhD. It implements methods developed jointly with the cancer surveillance research community, in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024.</p>
+<section id="project-team" class="level2">
+<h2 class="anchored" data-anchor-id="project-team">Project team</h2>
+<ul>
+<li><strong>Philip S. Rosenberg, PhD</strong> — Project lead; MATISSE toolbox architecture and code (National Cancer Institute, retired)</li>
+<li><strong>Hyuna Sung, PhD</strong>, and team — American Cancer Society</li>
+<li><strong>Adalberto Miranda Filho</strong> — International Agency for Research on Cancer (IARC/WHO)</li>
+<li><strong>Yasmmin Martins</strong></li>
+</ul>
+<p>MATISSE’s toolbox architecture and code are the work of Philip S. Rosenberg, PhD, implementing methods developed jointly with the cancer surveillance research community — in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024. The course built around it is a collaboration between the team above.</p>
 </section>
 
 </main>
