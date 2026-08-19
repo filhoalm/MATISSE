@@ -2,8 +2,7 @@
 
 A MATLAB Toolbox for vItal rateS SurveillancE.
 
-MATISSE implements the statistical methods described in Miranda Filho & Rosenberg,
-["Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective"](https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2023.1332429/full). It packages age-period-cohort modeling, joinpoint
+MATISSE implements the statistical methods described in ["Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective"](https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2023.1332429/full). It packages age-period-cohort modeling, joinpoint
 regression, comparative APC analysis, Lexis diagram smoothing, and semiparametric
 APC analysis behind a common object-oriented interface (`rates`, `apc`, `epiphany`,
 `capricorn`, `joinpoint`, `sift`, `sage`, ...).
