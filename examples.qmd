@@ -1,0 +1,112 @@
+---
+title: "Examples"
+subtitle: "Run the code and explore Lexis diagrams"
+date: today
+date-modified: 2026-09-14
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    theme: cosmo
+    css: styles.css
+    include-after-body: link-targets.html
+    title-block-banner: "#0B2E4F"
+    title-block-banner-color: "#FFFFFF"
+    fig-align: center
+    code-tools: false
+    smooth-scroll: true
+    embed-resources: true
+---
+
+```{=html}
+<nav class="course-nav course-global-nav" aria-label="Course navigation"><a href="index.html">Home</a><a href="course-information.html">Course information</a><a href="getting-started.html">Getting started</a><a href="toolbox-guide.html">Toolbox guide</a><a href="examples.html" aria-current="page">Examples</a><a href="resources.html">Resources</a></nav><p class="course-back"><a href="index.html">← Back to course</a></p>
+```
+
+## Examples
+
+**Video:** [Watch Visualizing a Lexis diagram on YouTube](https://www.youtube.com/watch?v=dzQgEBVj48o) (43 sec).
+
+Practice with one of the 16 built-in example datasets from the US Surveillance, Epidemiology, and End Results (SEER) program. Load the data, draw a heat map with `pcolor`, and draw a surface with `surf`. Then adjust the graphics or compare several diagrams with `thumbnail`. Open the examples below and run one section at a time.
+
+[See the full code examples and figures →](examples.html)
+
+## Example data
+
+MATISSE includes 16 example datasets from the US Surveillance, Epidemiology, and End Results (SEER) program. A **Lexis diagram** displays rates by age and calendar period. Start with example 16 to explore the workflow before using your own data. Run the code below to load the data and fill zero cells. Set `DELTA` to 2 or 5 to combine age and period intervals when the data are sparse.
+
+``` matlab
+Example = 16;      % 1x1 age-by-period Lexis diagram, e.g. "F melanoma NHW"
+DELTA   = 1;        % chunk to 2x2 or 5x5 age/period blocks if the data are sparse
+
+r = ratesdata(Example);
+switch DELTA
+    case 1
+        R0 = r;
+    case 2
+        R0 = chunk(r, 'AgeBlock', 2, 'PerBlock', 2);
+    case 5
+        R0 = chunk(r, 'AgeBlock', 5, 'PerBlock', 5);
+end
+
+R = fill(R0);   % add a small value to any zero cells
+disp(R)
+```
+
+## Visualizing a Lexis diagram
+
+**Video:** [Watch Visualizing a Lexis diagram on YouTube](https://www.youtube.com/watch?v=dzQgEBVj48o) (43 sec).
+
+Two plots help you explore the same data. A **heat map** uses color to show the rates; a **3-D surface** shows log rates. Run the Example data section first to create `R`. Then run this code: `pcolor(R)` draws the heat map, and `surf(R)` draws the surface.
+
+``` matlab
+figure('Position', [0 0 700 700])
+pcolor(R)
+
+figure('Position', [0 0 700 700])
+surf(R)
+```
+
+![`melanoma F NHW`, 1975–2020 SEER rates per 100,000 — `pcolor` heat map](images/lexis_melanoma_pcolor.png){fig-alt="Heat map of melanoma incidence rates by age and period" width="42%" fig-align="center"}
+
+Graphics settings can make patterns easier to see. Run the code below to compare the surface on the left with a heat map on the right. The heat map uses the `nepal` color scheme. Change one option at a time and inspect the result.
+
+``` matlab
+subplot(1, 2, 1)
+surf(R)
+colormap nepal
+colorbar off
+shading faceted
+
+subplot(1, 2, 2)
+pvp1 = ego('class', 'rates', 'method', 'pcolor');
+pvp1.colormap  = 'nepal';
+pvp1.colorbar  = 'southoutside';
+pcolor(R, pvp1)
+```
+
+![Log-rate surface vs. heat map, same Lexis diagram](images/lexis_surf_pcolor_compare.png){fig-alt="Side by side surf and pcolor plots of the same rates object" width="70%" fig-align="center"}
+
+A **property-value pair** names a graphics setting and gives its value. The `go` options store these settings. Use `ego` to copy a plot method's default settings, then edit the copy. MATISSE includes a 54-color line palette called `clarinet`. It also includes the `africa` and `nepal` color schemes, alongside MATLAB's built-in choices.
+
+## Comparing several Lexis diagrams at once
+
+Placing diagrams side by side helps you compare patterns across groups. Use `thumbnail` or `vistagram` with objects of the same size. Run the example below to compare breast cancer rates by estrogen receptor (ER) status and race. ER+ means receptor-positive; ER− means receptor-negative. NHB and NHW mean non-Hispanic Black and non-Hispanic White. The code combines the data into 2-by-2 age and period blocks, then displays log rates.
+
+``` matlab
+r4 = ratesdata([1 3 2 4]);   % ER+ NHB, ER+ NHW, ER- NHB, ER- NHW
+t4 = cell(1, 4);
+for i = 1:4
+    r4{i} = chunk(r4{i}, 'AgeBlock', 2, 'PerBlock', 2);
+    t4{i} = type(r4{i}, 'comp', 'lr');   % log rates
+end
+
+figure('Position', [0 0 1200 600])
+thumbnail(t4)
+```
+
+![Thumbnail comparison of four Lexis diagrams: breast cancer log rates by ER status and race](images/breast_er_thumbnail.png){fig-alt="Four heat maps of log incidence rates side by side, comparing ER status and race"}
+
+
+```{=html}
+<footer class="course-page-footer"><p class="course-back"><a href="index.html">← Back to course</a></p></footer>
+```

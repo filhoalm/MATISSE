@@ -1,14 +1,15 @@
 ---
 title: "MATISSE"
-subtitle: "a MATLAB Toolbox for vItal rateS Surveillance — course and toolbox support page"
+subtitle: "a MATLAB Toolbox for vItal rateS Surveillance"
 date: today
-date-modified: today
+date-modified: 2026-09-14
 format:
   html:
-    toc: true
+    toc: false
     toc-depth: 3
     theme: cosmo
     css: styles.css
+    include-after-body: link-targets.html
     title-block-banner: "#0B2E4F"
     title-block-banner-color: "#FFFFFF"
     fig-align: center
@@ -17,185 +18,51 @@ format:
     embed-resources: true
 ---
 
-![](images/banner.png){fig-alt="MATISSE banner, styled after Henri Matisse's paper cut-outs" width="100%"}
+```{=html}
+<nav class="course-nav course-global-nav" aria-label="Course navigation"><a href="index.html" aria-current="page">Home</a><a href="course-information.html">Course information</a><a href="getting-started.html">Getting started</a><a href="toolbox-guide.html">Toolbox guide</a><a href="examples.html">Examples</a><a href="resources.html">Resources</a></nav><div class="course-home">
 
-::: callout-note
-This page is a **working draft**. It's the support page for the MATISSE course and toolbox — content, code examples, and downloads below will keep expanding as the course and its user's guide grow.
-:::
+<section class="course-intro" aria-labelledby="course-intro-title">
+<div><p class="course-eyebrow">CANCER SURVEILLANCE · SHORT COURSE</p><h2 id="course-intro-title">Explore cancer rates.<br>Build your APC skills.</h2><p>Learn to prepare data, visualize patterns, and explore age-period-cohort methods with MATISSE.</p><div class="course-actions"><a class="course-button" href="#course-modules">Start learning <span aria-hidden="true">→</span></a></div><p class="course-audience">For epidemiologists, cancer registry researchers, and biostatisticians.</p></div>
 
-## The MATISSE course
-
-MATISSE is being introduced through a short course, alongside the toolbox documentation below. Two formats are planned:
-
--   **Live introductory sessions** — a short, high-level primer on age-period-cohort (APC) methods for epidemiologists, with time set aside for Q&A. Date to be announced.
--   **On-demand sessions** — longer, hands-on lectures organized chapter by chapter, working through the toolbox and its `.mlx` user's guide in depth. Recordings and additional materials will be added here as they become available.
-
-The course is aimed at epidemiologists, cancer registry researchers, and biostatisticians interested in age-period-cohort methods for cancer surveillance. Slides and code are shared from this page — see [Downloads](#downloads) below.
-
-## Overview
-
-**MATISSE** is a **MA**TLAB **T**oolbox for v**I**tal rate**S** **S**urveillanc**E**. It was designed to implement the suite of statistical methods described in [*Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective*](https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2023.1332429/full).
-
-MATISSE recapitulates the [Age-Period-Cohort Analysis Web Tool](https://dceg.cancer.gov/tools/analysis/apc) and packages it together with a complementary family of methods, including the new age-period-cohort model, comparative age-period-cohort analysis, smoothing methods for Lexis diagrams, and semiparametric age-period-cohort analysis (see [Related methods and publications](#related-methods-and-publications) below).
-
-MATISSE is free to use. You can run it at no cost through [MATLAB Online](https://www.mathworks.com/products/matlab-online.html), or locally if you already have a MATLAB license.
-
-## Design
-
-MATISSE is built as an [object-oriented system](https://www.mathworks.com/company/technical-articles/introduction-to-object-oriented-programming-in-matlab.html) — a concept that will feel familiar to R users. Data and models are represented as **objects** that you manipulate through object-specific **methods**. For example:
-
--   a `rates` object encapsulates a set of age-specific event rates observed over time (a Lexis diagram)
--   an `apc` object encapsulates an age-period-cohort analysis fitted to a `rates` object
--   a `tbl` object is a lightweight labeled-matrix container, loosely analogous to a `data.frame`
--   a `matrix` object pairs a random vector or array with its variance-covariance matrix — described by its author as *"MATISSE's secret sauce"*, since it lets transformations propagate uncertainty automatically instead of requiring hand-written delta-method code
-
-The core classes shipped in the toolbox:
-
-| Class            | Purpose                                                                                     |
-|------------------------------------|------------------------------------|
-| `rates`          | Age-specific event rates over time (Lexis diagrams); classic descriptive plots, ASRs        |
-| `apc`            | The new age-period-cohort model                                                             |
-| `epiphany`       | Exploratory comparative age-period-cohort analysis                                          |
-| `capricorn`      | Hypothesis-based comparative age-period-cohort analysis                                     |
-| `joinpoint`      | Joinpoint regression                                                                        |
-| `sift`           | Singular-value adaptive kernel filtration                                                   |
-| `sage`           | Semiparametric age-period-cohort analysis                                                   |
-| `panko`          | Kernel smoothing utilities feeding into `sift`                                              |
-| `tbl` / `matrix` | Lightweight labeled-data and error-propagating array containers underlying everything above |
-
-### System map
-
-MATISSE's classes and methods are organized like a transit map — each class is a line, its methods are the stops, and a handful of hub classes (`rates`, `matrix`) let you transfer between them:
-
-``` matlab
-matisse('map')
+<a class="course-video-card" href="https://www.youtube.com/watch?v=sWqLcsujtlQ" target="_blank" rel="noopener" aria-label="Watch Welcome to MATISSE on YouTube, 4 minutes 23 seconds, opens in a new tab">
+<div class="course-video-preview"><img src="https://i.ytimg.com/vi/sWqLcsujtlQ/hqdefault.jpg" alt="" loading="lazy"><span class="course-video-play" aria-hidden="true">▶</span><span class="course-video-duration">4:23</span></div>
+<div class="course-video-caption"><strong>Welcome to MATISSE</strong><span>Watch the course tour on YouTube ↗</span></div>
+</a></section>
+<section class="course-outcomes" aria-labelledby="course-outcomes-title"><h2 id="course-outcomes-title">What you’ll learn</h2><ul><li>Set up MATISSE in MATLAB Online.</li><li>Explore rates by age and calendar period.</li><li>Draw and compare Lexis diagrams.</li><li>Find APC methods and supporting resources.</li></ul></section>
+<section id="course-modules" class="course-modules" aria-labelledby="course-modules-title">
+<div class="course-section-heading"><div><p class="course-eyebrow">YOUR LEARNING PATH</p><h2 id="course-modules-title">One step at a time</h2></div><p>Watch → Read → Run the code</p></div>
+<p>Start with setup, then work through the guides. Open a module to find its materials and practice task. Resource links open in a new tab.</p>
+<details class="course-module" open><summary><span class="module-number">01</span><span class="module-heading"><strong>Get started</strong><span>Set up your workspace and find your way around.</span></span><span class="module-toggle" aria-hidden="true">+</span></summary><div class="module-body">
+<div class="module-resources"><a href="https://www.youtube.com/watch?v=sWqLcsujtlQ"><span>WATCH · 4:23</span>MATISSE course tour ↗</a><a href="getting-started.html#getting-started-with-matlab-online"><span>READ</span>MATLAB Online setup guide →</a><a href="downloads/MATISSE_toolbox.zip"><span>DOWNLOAD</span>MATISSE toolbox ↗</a></div>
+<div class="module-practice"><strong>Your first task</strong><p>Open MATLAB Online. Unzip the toolbox and add its folder and subfolders to the MATLAB path. This lets MATLAB find the functions used in the guides.</p><a href="https://matlab.mathworks.com/open/github/v1?repo=filhoalm/MATISSE&amp;file=downloads/MATISSE_1_Overview.mlx">Open in MATLAB Online ↗</a></div></div></details>
+<details class="course-module"><summary><span class="module-number">02</span><span class="module-heading"><strong>Meet the toolbox</strong><span>Understand objects, methods, and the system map.</span></span><span class="module-toggle" aria-hidden="true">+</span></summary><div class="module-body">
+<div class="module-resources"><a href="https://www.youtube.com/watch?v=6frwitiOJ_Y"><span>WATCH · 0:22</span>System map guide ↗</a><a href="downloads/Statistical_Methods_in_CSR.pptx"><span>READ · SLIDES</span>Statistical methods in cancer surveillance ↗</a><a href="downloads/MATISSE_1_Overview.mlx"><span>RUN · LIVE SCRIPT</span>MATISSE 1 Overview ↗</a></div>
+<div class="module-practice"><strong>Try it in MATLAB</strong><p>Run the Overview live script one section at a time. Open the system map with <code>matisse('map')</code>. Find the <code>rates</code> class and a method you want to explore.</p><a href="toolbox-guide.html#system-map">Read about the system map →</a></div></div></details>
+<details class="course-module"><summary><span class="module-number">03</span><span class="module-heading"><strong>Explore Lexis diagrams</strong><span>Visualize rates and compare patterns across groups.</span></span><span class="module-toggle" aria-hidden="true">+</span></summary><div class="module-body">
+<div class="module-resources"><a href="https://www.youtube.com/watch?v=dzQgEBVj48o"><span>WATCH · 0:43</span>Visualizing a Lexis diagram ↗</a><a href="downloads/The_Lexis_Diagram.pptx"><span>READ · SLIDES</span>The Lexis Diagram ↗</a><a href="downloads/MATISSE_2_The_Lexis_Diagram.mlx"><span>RUN · LIVE SCRIPT</span>MATISSE 2 The Lexis Diagram ↗</a></div>
+<div class="module-practice"><strong>Try it in MATLAB</strong><p>Load the example data. Draw a heat map with <code>pcolor</code> and a surface with <code>surf</code>. Change one graphics option and inspect the result.</p><a href="examples.html">Open the worked examples ↗</a></div></div></details>
+<details class="course-module"><summary><span class="module-number">04</span><span class="module-heading"><strong>Go further with APC methods</strong><span>Connect the examples with methods and scientific background.</span></span><span class="module-toggle" aria-hidden="true">+</span></summary><div class="module-body">
+<div class="module-resources"><a href="downloads/SEER_CI5plus_to_APC_WebTool.pptx"><span>READ · SLIDES</span>Prepare data for the APC web tool ↗</a><a href="downloads/Miranda-Filho_Rosenberg_2024_FrontOncol.pdf"><span>READ · METHODS PAPER</span>Advances in cancer surveillance methods ↗</a><a href="resources.html#related-methods-and-publications"><span>EXPLORE</span>Comparative APC, smoothing, and SAGE →</a></div>
+<div class="module-practice"><strong>Plan your next analysis</strong><p>Choose a method that relates to your research question. Read its reference paper, then use the built-in help to explore the relevant class. Further lectures will be linked as they become available.</p><a href="toolbox-guide.html#getting-help">Find help commands →</a></div></div></details>
+</section>
+<div class="course-resource-strip"><div><strong>Need a file or a reference?</strong><p>Find the toolbox, live scripts, slides, and papers in one place.</p></div><a class="course-button" href="resources.html#downloads">Browse resources →</a></div>
+</div>
 ```
 
-![MATISSE system map](images/system_map.png){fig-alt="Map of MATISSE classes and methods, styled after a subway map" width="90%"}
 
-## Example data
-
-MATISSE ships with 16 built-in example Lexis diagrams drawn from US SEER registry data (1992–2020): breast cancer by ER status and race (NHW/NHB), colon, liver, lung, and thyroid cancer by sex and race, and melanoma. Selecting one and filling any zero cells takes two lines:
-
-``` matlab
-Example = 16;      % 1x1 age-by-period Lexis diagram, e.g. "F melanoma NHW"
-DELTA   = 1;        % chunk to 2x2 or 5x5 age/period blocks if the data are sparse
-
-r = ratesdata(Example);
-switch DELTA
-    case 1
-        R0 = r;
-    case 2
-        R0 = chunk(r, 'AgeBlock', 2, 'PerBlock', 2);
-    case 5
-        R0 = chunk(r, 'AgeBlock', 5, 'PerBlock', 5);
-end
-
-R = fill(R0);   % add a small value to any zero cells
-disp(R)
+```{=html}
+<div class="home-extras"><section id="project-team" class="level2">
+<h2 class="anchored" data-anchor-id="project-team">Team</h2>
+<div class="team-grid">
+<ul>
+<li><strong>Philip S. Rosenberg</strong></li>
+<li><strong>Hyuna Sung</strong></li>
+<li><strong>Kieran Kelly</strong></li>
+<li><strong>Chenxi Jiang</strong></li>
+<li><strong>Adalberto M. Filho</strong></li>
+<li><strong>Yasmmin Martins</strong></li>
+</ul>
+</div>
+<p>Philip S. Rosenberg, PhD, developed the MATISSE toolbox and its code. The toolbox implements methods developed with the cancer surveillance research community. These include the APC methods described with Adalberto Miranda Filho in Front Oncol 2024. The team listed above develops the course.</p>
+</section><section id="faq" class="home-faq"><h2>FAQ</h2><details><summary>Do I need to buy MATLAB to use MATISSE?</summary><p>You can use MATLAB Online in your browser. Sign in with a MathWorks account and check the current access terms. Follow <a href="getting-started.html#getting-started-with-matlab-online" target="_blank" rel="noopener">Getting started with MATLAB Online</a> to set up the toolbox. You need a MATLAB license to use a local copy.</p></details><details><summary>Do I need to know MATLAB already?</summary><p>Some familiarity helps. Start with the Overview live script to learn how the toolbox works. Run one section at a time and inspect the result. Use <a href="toolbox-guide.html#getting-help" target="_blank" rel="noopener">Getting help</a> when a command is unfamiliar.</p></details><details><summary>Is MATISSE peer reviewed / published?</summary><p>The methods are described in Miranda Filho &amp; Rosenberg, <em>Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective</em> (Front Oncol, 2024). Download the paper from <a href="resources.html#downloads">Downloads</a>. For individual methods, such as SAGE and comparative APC analysis, open <a href="resources.html#related-methods-and-publications">Related methods and publications</a>.</p></details><details><summary>How do I ask a question or get help?</summary><p>A shared inbox for course and methods questions is being set up. Contact details will appear here when it is ready. For now, use the toolbox's built-in help. See <a href="toolbox-guide.html#getting-help" target="_blank" rel="noopener">Getting help</a> for the commands.</p></details><details><summary>Will the live sessions be recorded?</summary><p>Yes. Recordings will be linked here when they are available.</p></details></section></div>
 ```
-
-## Visualizing a Lexis diagram
-
-The `rates` class has both a `pcolor` method (absolute rates, heat map) and a `surf` method (log rates, 3-D surface):
-
-``` matlab
-figure('Position', [0 0 700 700])
-pcolor(R)
-
-figure('Position', [0 0 700 700])
-surf(R)
-```
-
-::: {layout-ncol="1"}
-![`melanoma F NHW`, 1975–2020 SEER rates per 100,000 — `pcolor` heat map](images/lexis_melanoma_pcolor.png){fig-alt="Heat map of melanoma incidence rates by age and period"}
-:::
-
-Every plot can be tuned from the command line with ordinary MATLAB graphics calls, or up front with MATISSE's own `go`/`ego` option system — shown here side by side (`surf` on the left, `pcolor` with a custom `nepal` colormap on the right):
-
-``` matlab
-subplot(1, 2, 1)
-surf(R)
-colormap nepal
-colorbar off
-shading faceted
-
-subplot(1, 2, 2)
-pvp1 = ego('class', 'rates', 'method', 'pcolor');
-pvp1.colormap  = 'nepal';
-pvp1.colorbar  = 'southoutside';
-pcolor(R, pvp1)
-```
-
-![Log-rate surface vs. heat map, same Lexis diagram](images/lexis_surf_pcolor_compare.png){fig-alt="Side by side surf and pcolor plots of the same rates object"}
-
-`go` values are structures of MATLAB property-value pairs; `ego` returns a fresh copy of a given plot method's defaults so you always have a known starting point to edit from. MATISSE also ships a 54-color standard line palette (`clarinet`) plus two purpose-built colormaps, `africa` (green–black–red) and `nepal` (bone–copper–autumn), on top of anything built into MATLAB itself.
-
-## Comparing several Lexis diagrams at once
-
-Surveillance questions are rarely about a single Lexis diagram in isolation. The `thumbnail` and `vistagram` graphics functions generalize `pcolor`/`surf` to two or more same-sized `rates`, `tbl`, or `matrix` objects — here, ER+/ER− breast cancer incidence for non-Hispanic Black and non-Hispanic White women, chunked to 2×2 age/period blocks:
-
-``` matlab
-r4 = ratesdata([1 3 2 4]);   % ER+ NHB, ER+ NHW, ER- NHB, ER- NHW
-t4 = cell(1, 4);
-for i = 1:4
-    r4{i} = chunk(r4{i}, 'AgeBlock', 2, 'PerBlock', 2);
-    t4{i} = type(r4{i}, 'comp', 'lr');   % log rates
-end
-
-figure('Position', [0 0 1200 600])
-thumbnail(t4)
-```
-
-![Thumbnail comparison of four Lexis diagrams: breast cancer log rates by ER status and race](images/breast_er_thumbnail.png){fig-alt="Four heat maps of log incidence rates side by side, comparing ER status and race"}
-
-## Getting help
-
-Every MATISSE function ships with detailed, hyperlinked help. From the MATLAB command line:
-
-``` matlab
-help rates/rates          % help for a specific class
-methods rates              % list every method of a class
-help rates/fill             % help for a specific method
-doc('rates')                 % open help in a standalone window
-```
-
-## Scripting with MATISSE
-
-The recommended way to start your own analysis is to copy the relevant sections of one of the `.mlx` user's-guide files below, then edit the template to point at your own data. The MATLAB command line doubles as a scratch pad for trying things out before promoting code into a script.
-
-## Downloads {#downloads}
-
-The user's guide is a growing set of MATLAB Live Script (`.mlx`) files, each paired with a PowerPoint lecture; together they form a short course built around the Frontiers in Oncology methods paper. The files below are what exists so far.
-
-| File                                                                                                 | Description                                                                                                                                       | Size   |
-|------------------------|------------------------|------------------------|
-| [MATISSE_toolbox.zip](downloads/MATISSE_toolbox.zip)                                                 | The toolbox itself: all classes (`@apc`, `@rates`, `@sage`, …), graphics and statistics functions, and the 16 example SEER datasets               | 0.9 MB |
-| [MATISSE_1_Overview.mlx](downloads/MATISSE_1_Overview.mlx)                                           | User's guide 1: design philosophy, object model, system map, help system, graphics options                                                        | 1.2 MB |
-| [MATISSE_2_The_Lexis_Diagram.mlx](downloads/MATISSE_2_The_Lexis_Diagram.mlx)                         | User's guide 2: the `rates` class, `pcolor`/`surf`/`lexis` methods, comparing multiple Lexis diagrams                                             | 2.6 MB |
-| [Statistical_Methods_in_CSR.pptx](downloads/Statistical_Methods_in_CSR.pptx)                         | Course slides: statistical methods in cancer surveillance research                                                                                | 1.0 MB |
-| [The_Lexis_Diagram.pptx](downloads/The_Lexis_Diagram.pptx)                                           | Course slides: the Lexis diagram                                                                                                                  | 3.1 MB |
-| [SEER_CI5plus_to_APC_WebTool.pptx](downloads/SEER_CI5plus_to_APC_WebTool.pptx)                       | Course slides: from SEER/CI5+ data to the APC web tool                                                                                            | 1.8 MB |
-| [Miranda-Filho_Rosenberg_2024_FrontOncol.pdf](downloads/Miranda-Filho_Rosenberg_2024_FrontOncol.pdf) | Miranda Filho & Rosenberg, *Advances in statistical methods for cancer surveillance research: an age-period-cohort perspective*, Front Oncol 2024 | 4.4 MB |
-| [Rosenberg_2023_BMCMedResMethodol.pdf](downloads/Rosenberg_2023_BMCMedResMethodol.pdf)               | Comparative age-period-cohort analysis reference (BMC Med Res Methodol 2023)                                                                      | 6.2 MB |
-
-## Related methods and publications {#related-methods-and-publications}
-
--   [Age-Period-Cohort Analysis Web Tool](https://dceg.cancer.gov/tools/analysis/apc) (NCI DCEG) — [description](https://aacrjournals.org/cebp/article/23/11/2296/14669/A-Web-Tool-for-Age-Period-Cohort-Analysis-of)
--   [The new age-period-cohort model](https://journals.sagepub.com/doi/10.1177/0962280218801121)
--   [Comparative age-period-cohort analysis](https://link.springer.com/article/10.1186/s12874-023-02039-8)
--   [Smoothing methods for Lexis diagrams](https://journals.sagepub.com/doi/10.1177/09622802231192950)
--   [Semiparametric age-period-cohort analysis](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2819747)
-
-## Project team
-
-::: team-grid
--   **Philip S. Rosenberg,**
--   **Hyuna Sung,**
--   **Kieran Kelly,**
--   **Chenxi Jiang,**
--   **Adalberto M. Filho**
--   **Yasmmin Martins**
-:::
-
-MATISSE's toolbox architecture and code are the work of Philip S. Rosenberg, PhD, implementing methods developed jointly with the cancer surveillance research community — in particular the age-period-cohort framework described with Adalberto Miranda Filho in Front Oncol 2024. The course built around it is a collaboration between the team above.
